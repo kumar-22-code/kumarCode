@@ -1,0 +1,87 @@
+press=int(input("1 = withdraw \n 2 = check balance \n 3 = change pin \n 4 = desposite\n="))
+if(press==1):
+    pin=int(input("enter the pin"))
+    file = open("pin.txt", "r")
+    data = file.read()
+    file.close()
+    if(int(data)==pin):
+        print("pin is correct ")
+        print("plz wait")
+        amount=int(input("enter the amount="))
+        file = open("balance.txt", "r")
+        data = file.read()
+        file.close()
+        print(int(data)-amount)
+        print("thank you for service")
+    else:
+        print("pin is not correct")
+
+if(press==2):
+    pin = int(input("enter the pin"))
+    file = open("pin.txt", "r")
+    data = file.read()
+    file.close()
+    if(int(data)==pin):
+        print("your pin is correct ")
+        file = open("balance.txt", "r")
+        data = file.read()
+        file.close()
+        print("your total balance is", data)
+        print("thank you for service ******** ")
+    else:
+        print("your pin is not correct")
+
+
+if(press==3):
+    pin = int(input("enter your last pin"))
+    file = open("pin.txt", "r")
+    data = file.read()
+    file.close()
+    if(int(data)==pin):
+        print("your pin is correct")
+        new_pin = int(input("enter the new pin"))
+        retype_new_pin=int(input("retype new pin"))
+        file = open("pin.txt", "w")
+        var = str(retype_new_pin)
+        file.write(var)
+        file.close()
+
+        if(new_pin==retype_new_pin):
+            print("your pin is change sucessfully")
+            print("thank you for service")
+        else:
+            print("your pin does not match")
+    else:
+        print("your pin is not correct")
+
+
+if(press==4):
+    pin = int(input("enter your four digit  pin"))
+    file = open("pin.txt", "r")
+    data = file.read()
+    file.close()
+    if (int(data) == pin):
+        print("your pin is correct")
+        dep = int(input("enter the amount = "))
+        file = open("abc.txt", "r")
+        data = file.read()
+        file.close()
+
+        add = dep + int(data)
+        print("your has been deposited ")
+        file = open("balance.txt", "r")
+        data = file.read()
+        file.close()
+        print("your total balance is", add)
+        print("thank you for service ******* ")
+    else:
+        print("your pin is wrong")
+
+
+
+
+
+
+
+
+
